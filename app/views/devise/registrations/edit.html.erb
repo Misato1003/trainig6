@@ -1,12 +1,24 @@
-<h2><%= t('.title', resource: resource.model_name.human) %></h2>
+<h2>プロフィールの編集</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
+  
   <table>
     <tr class="field">
       <th><%= f.label :username, "ユーザー名" %></th>
       <td><%= f.text_field :username %></td>
+    </tr>
+    
+    <tr class="field">
+      <th><%= f.label :image, "現在のプロフィール画像" %></th>
+      <td>
+        <!--プロフィールの画像を表示することができる-->
+        <% if current_user.image.file == nil %>
+          <img src="/assets/default_icon.png" class="default_image">
+        <% else %>
+          <img src="<%= current_user.image %>" class="user-image">
+        <% end %>
+      </td>
     </tr>
     
     <tr class="field">
