@@ -11,6 +11,23 @@
   </head>
 
   <body>
+    <header>
+      <% if user_signed_in? %>
+        <nav>
+          <ul>
+            <li><%= link_to("プロフィール設定", "/users/edit") %></li>
+            <li><%= link_to("ログアウト", "/users/sign_out", method: :delete) %></li>
+          </ul>
+        </nav>
+      <% else %>
+        <div>
+          <%= link_to("ログイン", "/users/sign_in") %>
+          <%= link_to("新規登録する", "/users/sign_up") %>
+        </div>
+      <% end %>
+    </header>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
