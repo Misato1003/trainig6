@@ -5,6 +5,16 @@
 
   <table>
     <tr class="field">
+      <th><%= f.label :username, "ユーザー名" %></th>
+      <td><%= f.text_field :username %></td>
+    </tr>
+    
+    <tr class="field">
+      <th><%= f.label :image, "プロフィール画像" %></th>
+      <td><%= f.file_field :image %></td>
+    </tr>
+    
+    <tr class="field">
       <th><%= f.label :email %></th>
       <td>
         <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -33,8 +43,13 @@
     </tr>
 
     <tr class="field">
-      <th><%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i></th>
+      <th><%= f.label :current_password %> </br><i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i></th>
       <td><%= f.password_field :current_password, autocomplete: "current-password" %></td>
+    </tr>
+    
+    <tr class="field">
+      <th><%= f.label :introduction, '一言紹介' %></th>
+      <td><%= f.text_area :introduction %></td>
     </tr>
   </table>
 
