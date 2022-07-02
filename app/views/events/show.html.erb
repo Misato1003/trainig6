@@ -7,6 +7,15 @@
   </div>
   
   <div>
+    <p>イベント動画</p>
+    <p>
+      <%= link_to @event.video_url.to_s do %>
+        <%= video_tag(@event.video.to_s) %>
+      <% end %>
+    </p>
+  </div>
+  
+  <div>
     <p>イベント名</p>
     <p><%= @event.eventname %></p>
   </div>

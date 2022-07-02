@@ -3,8 +3,17 @@
 <div>
   <% @events.each do |event| %>
     <div>
-      <p>画像</p>
+      <p>イベント写真</p>
       <p><%= image_tag(event.eventimage.to_s, class: "event-image") %></p>
+    </div>
+    
+    <div>
+      <p>イベント動画</p>
+      <p>
+        <%= link_to event.video_url.to_s do %>
+          <%= video_tag(event.video.to_s) %>
+        <% end %>
+      </p>
     </div>
 
     <div>

@@ -9,8 +9,15 @@
     <tr>
       <th><%= f.label :eventimage, "イベント写真" %></th>
       <td>
-        <%= image_tag(@event.eventimage.to_s, class: "event-image") %>
+        <%= image_tag(@event.eventimage.to_s, class: "event-image") %></br>
         <%= f.file_field :eventimage %>
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label :video, "イベント動画" %></th>
+      <td>
+        <%= video_tag(@event.video.to_s) %></br>
+        <%= f.file_field :video, :accept => 'video/*' %>
       </td>
     </tr>
     <tr>

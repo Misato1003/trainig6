@@ -3,6 +3,9 @@ class Event < ApplicationRecord
 
   # 画像のアップロード
   mount_uploader :eventimage, ImageUploader
+  
+  #動画のアップロード
+  mount_uploader :video, VideoUploader
 
   validates :eventname, presence: true
   validates :first_day, presence: true
