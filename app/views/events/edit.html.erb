@@ -31,7 +31,9 @@
     </tr>
     <tr>
       <th><%= f.label :eventtype, "イベントの種類" %></th>
-      <td><%= f.text_field :eventtype %></td>
+      <td>
+         <%= f.select :eventtype, [["お祭り", "お祭り"], ["フェス", "フェス"], ["イベント", "イベント"], ["スポーツ", "スポーツ"], ["食", "食"], ["音楽", "音楽"], ["美術館", "美術館"], ["博物館", "博物館"]], include_blank: "選択してください" %>
+      </td>
     </tr>
   </table>
   <div>
