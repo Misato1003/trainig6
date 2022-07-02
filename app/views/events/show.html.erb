@@ -3,7 +3,7 @@
 <div>
   <div>
     <p>イベントの写真</p>
-    <p><%= @event.eventimage %></p>
+    <p><%= image_tag(@event.eventimage.to_s, class: "event-image") %></p>
   </div>
   
   <div>
@@ -13,12 +13,12 @@
   
   <div>
     <p>場所</p>
-    <p><%= @event.place %></p>
+    <p><%= simple_format(@event.place) %></p>
   </div>
   
   <div>
     <p>内容</p>
-    <p><%= @event.content %></p>
+    <p><%= simple_format(@event.content) %></p>
   </div>
   
   <div>

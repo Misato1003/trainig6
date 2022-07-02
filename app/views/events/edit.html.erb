@@ -8,7 +8,10 @@
     </tr>
     <tr>
       <th><%= f.label :eventimage, "イベント写真" %></th>
-      <td><%= f.file_field :eventimage %></td>
+      <td>
+        <%= image_tag(@event.eventimage.to_s, class: "event-image") %>
+        <%= f.file_field :eventimage %>
+      </td>
     </tr>
     <tr>
       <th><%= f.label :first_day, "開始日" %></th>
