@@ -49,59 +49,13 @@
     <p>更新日</p>
     <p><%= @event.updated_at.to_s(:datetime_jp) %></p>
   </div>
-  
-  <div>
-    <ul>
-      <li><%= link_to 'イベントの一覧表', events_path %></li>
-      <li><%= link_to 'イベントの編集', [:edit, @event] %></li>
-      <li><%= link_to 'イベントの削除', @event, method: :delete, data: { confirm: "本当に削除しますか?" } %></li>
-    </ul>
-  </div>
-  
-  <h4>新規投稿</h4>
-  
-  <%= form_with model: @post do |f| %>
-    <table>
-      <tr>
-        <th><%= f.label :nicknema, "投稿者の名前(必須)" %></th>
-        <td><%= f.text_field :nickname %></td>
-      </tr>
-      <tr>
-        <th><%= f.label :impressions, "投稿内容(必須)" %></th>
-        <td><%= f.text_area :impressions %></td>
-      </tr>
-    </table>
-    <%= f.hidden_field :user_id, value: @user_id %>
-    <%= f.hidden_field :event_id, value: @event.id %>
-    <div>
-      <ul>
-        <li><%= f.submit "投稿を完了する" %></li>
-      </ul>
-    </div>
-  <% end %>
-  
-  <h4>投稿一覧表</h4>
-  
-  <table>
-    <thead>
-      <tr>
-        <th>投稿者の名前</th>
-        <th>投稿内容</th>
-        <th>作成日</th>
-        <th>編集</th>
-        <th>削除</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @posts.each do |post| %>
-        <tr>
-          <td><%= post.nickname %></td>
-          <td><%= simple_format(post.impressions) %></td>
-          <td><%= post.created_at.to_s(:datetime_jp) %></td>
-          <td><%= link_to "編集", [:edit, post] %></td>
-          <td><%= link_to "削除", post, method: :delete, data: { confirm: "本当に削除しますか?" } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  
+</div>
+<div>
+  <ul>
+    <li><%= link_to 'イベントの一覧表', events_path %></li>
+    <li><%= link_to 'イベントの編集', [:edit, @event] %></li>
+    <li><%= link_to 'イベントの削除', @event, method: :delete, data: { confirm: "本当に削除しますか?" } %></li>
+  </ul>
+</div>
+<%= render "post_new" %>
+<%= render "index_post" %>

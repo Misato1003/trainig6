@@ -1,0 +1,22 @@
+<h4>新規投稿</h4>
+  
+<%= form_with model: @post do |f| %>
+  <table>
+    <tr>
+      <th><%= f.label :nicknema, "投稿者の名前(必須)" %></th>
+      <td><%= f.text_field :nickname %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :impressions, "投稿内容(必須)" %></th>
+      <td><%= f.text_area :impressions %></td>
+    </tr>
+  </table>
+  <%= f.hidden_field :user_id, value: @user_id %>
+  <%= f.hidden_field :event_id, value: @event.id %>
+  <div>
+    <ul>
+      <li><%= f.submit "投稿を完了する" %></li>
+    </ul>
+  </div>
+<% end %>
+  
