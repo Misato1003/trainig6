@@ -1,0 +1,8 @@
+ja:
+   activerecord:
+      models:
+         post: 投稿
+      attributes:
+         post:
+            nickname: 投稿者の名前
+            impressions: 投稿内容

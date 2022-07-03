@@ -63,12 +63,12 @@
   <%= form_with model: @post do |f| %>
     <table>
       <tr>
-        <th><%= f.label :nicknema, "投稿者の名前" %></th>
+        <th><%= f.label :nicknema, "投稿者の名前(必須)" %></th>
         <td><%= f.text_field :nickname %></td>
       </tr>
       <tr>
-        <th><%= f.label :impressions, "投稿内容" %></th>
-        <td><%= f.text_area :impression %></td>
+        <th><%= f.label :impressions, "投稿内容(必須)" %></th>
+        <td><%= f.text_area :impressions %></td>
       </tr>
     </table>
     <%= f.hidden_field :user_id, value: @user_id %>
@@ -88,18 +88,16 @@
         <th>投稿者の名前</th>
         <th>投稿内容</th>
         <th>作成日</th>
-        <th>詳細</th>
         <th>編集</th>
         <th>削除</th>
       </tr>
     </thead>
     <tbody>
-      <%= @posts.each do |post| %>
+      <% @posts.each do |post| %>
         <tr>
           <td><%= post.nickname %></td>
-          <td><%= post.impressions %></td>
+          <td><%= simple_format(post.impressions) %></td>
           <td><%= post.created_at.to_s(:datetime_jp) %></td>
-          <td><%= link_to "詳細", post_path %></td>
           <td><%= link_to "編集", [:edit, post] %></td>
           <td><%= link_to "削除", post, method: :delete, data: { confirm: "本当に削除しますか?" } %></td>
         </tr>

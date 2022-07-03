@@ -10,10 +10,10 @@ class PostsController < ApplicationController
     @post = Post.new(post_params.merge(user_id: current_user.id))
     if @post.save
       flash[:notice] = "新規投稿しました"
-      redirect_to  "/events"
+      redirect_to  event_path(@post.event.id)
     else
       flash[:notice] = "新規登録できませんでした"
-      redirect_to  events_path
+      redirect_to event_path(@post.event.id)
     end
   end
   
@@ -29,7 +29,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.update(post_params.merge(user_id: current_user.id))
       flash[:notice] = "投稿を更新しました"
-      redirect_to "/events"
+      redirect_to event_path(@post.event.id)
     else
       flash[:notice] = "投稿を更新できませんでした"
       render "edit"
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @post.destroy
     flash[:notice] = "投稿を削除しました"
-    redirect_to event_path
+    redirect_to event_path(@post.event.id)
   end
   
   def post_params

@@ -1,2 +1,76 @@
 <h3>投稿の詳細</h3>
 
+<table>
+  <tr>
+    <th>投稿者の名前</th>
+    <td><%= @post.nickname %></td>
+  </tr>
+  <tr>
+    <th>投稿内容</th>
+    <td><%= simple_format(@post.impressions) %></td>
+  </tr>
+  <tr>
+    <th>作成日</th>
+    <td><%= @post.created_at.to_s(:datetime_jp) %></td>
+  </tr>
+  <tr>
+    <th>更新日</th>
+    <td><%= @post.updated_at.to_s(:datetime_jp) %></td>
+  </tr>
+</table>
+
+<h3>イベントの詳細</h3>
+
+<div>
+  <p>イベント写真</p>
+  <p><%= image_tag(@post.event.eventimage.to_s, class: "event-image") %></p>
+</div>
+
+<div>
+  <p>イベント動画</p>
+  <p>
+    <%= link_to @post.event.video_url.to_s do %>
+      <%= video_tag(@post.event.video.to_s) %>
+    <% end %>
+  </p>
+</div>
+
+<div>
+  <p>イベント名</p>
+  <p><%= @post.event.eventname %></p>
+</div>
+
+<div>
+  <p>開始日時</p>
+  <p><%= @post.event.first_day %></p>
+  <p>終了日時</p>
+  <p><%= @post.event.last_day %></p>
+</div>
+
+<div>
+  <p>場所</p>
+  <p><%= simple_format(@post.event.place) %></p>
+</div>
+
+<div>
+  <p>内容</p>
+  <p><%= simple_format(@post.event.content) %></p>
+</div>
+
+<div>
+  <p>作成日</p>
+  <p><%= @post.event.created_at.to_s(:datetime_jp) %></p>
+</div>
+
+<div>
+  <p>更新日</p>
+  <p><%= @post.event.updated_at.to_s(:datetime_jp) %></p>
+</div>
+
+<div>
+  <ul>
+    <li><%= link_to "投稿の編集", [:edit, @post] %></li>
+    <li><%= link_to "イベントの一覧表", events_path %></li>
+    <li><%= link_to "イベントの詳細", event_path(@post.event.id) %></li>
+  </ul>
+</div>
