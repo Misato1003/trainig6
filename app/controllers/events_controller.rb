@@ -21,7 +21,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @post = Post.new
-    @posts = Post.where(event_id: @event.id) 
+    @posts = Post.where(event_id: @event.id)
   end
 
   def edit
