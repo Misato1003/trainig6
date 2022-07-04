@@ -10,7 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_22_041250) do
+ActiveRecord::Schema.define(version: 2022_07_02_131812) do
+
+  create_table "events", force: :cascade do |t|
+    t.string "eventname"
+    t.datetime "first_day"
+    t.datetime "last_day"
+    t.string "place"
+    t.string "content"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "eventimage"
+    t.string "eventtype"
+    t.string "video"
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "impressions"
+    t.string "nickname"
+    t.integer "user_id"
+    t.integer "event_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_posts_on_event_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +53,7 @@ ActiveRecord::Schema.define(version: 2022_06_22_041250) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "events", "users"
+  add_foreign_key "posts", "events"
+  add_foreign_key "posts", "users"
 end

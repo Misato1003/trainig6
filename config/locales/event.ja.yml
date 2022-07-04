@@ -1,0 +1,13 @@
+ja:
+   activerecord:
+      models:
+         event: イベント
+      attributes:
+         event: 
+            eventname: イベント名
+            first_day: 開始日
+            last_day: 終了日
+            place: 場所
+            content: 内容
+            eventimage: イベント写真
+            video: イベント動画

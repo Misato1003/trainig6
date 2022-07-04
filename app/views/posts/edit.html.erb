@@ -1,0 +1,23 @@
+<%= render "shared/error",obj: @post %>
+<h3>投稿を編集する</h3>
+
+<%= form_with model: @post do |f| %>
+  <table>
+    <tr>
+      <th><%= f.label :nickname, "投稿者の名前" %></th>
+      <td><%= f.text_field :nickname %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :impressions, "投稿内容" %></th>
+      <td><%= f.text_area :impressions %></td>
+    </tr>
+  </table>
+  <div>
+    <ul>
+      <li><%= f.submit "編集を完了する" %></li>
+      <li><%= link_to "投稿の詳細", post_path %></li>
+      <li><%= link_to "イベントの一覧表", events_path %></li>
+      <li><%= link_to "イベントの詳細", event_path(@post.event.id) %></li>
+    </ul>
+  </div>
+<% end %>

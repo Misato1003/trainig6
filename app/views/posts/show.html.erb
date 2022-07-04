@@ -1,0 +1,28 @@
+<h3>投稿の詳細</h3>
+
+<table>
+  <tr>
+    <th>投稿者の名前</th>
+    <td><%= @post.nickname %></td>
+  </tr>
+  <tr>
+    <th>投稿内容</th>
+    <td><%= simple_format(@post.impressions) %></td>
+  </tr>
+  <tr>
+    <th>作成日</th>
+    <td><%= @post.created_at.to_s(:datetime_jp) %></td>
+  </tr>
+  <tr>
+    <th>更新日</th>
+    <td><%= @post.updated_at.to_s(:datetime_jp) %></td>
+  </tr>
+</table>
+<%= render "event_show" %>
+<div>
+  <ul>
+    <li><%= link_to "投稿の編集", [:edit, @post] %></li>
+    <li><%= link_to "イベントの一覧表", events_path %></li>
+    <li><%= link_to "イベントの詳細", event_path(@post.event.id) %></li>
+  </ul>
+</div>

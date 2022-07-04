@@ -25,6 +25,7 @@
           <ul>
             <li><%= link_to("プロフィール設定", "/users/edit") %></li>
             <li><%= link_to("ログアウト", "/users/sign_out", method: :delete) %></li>
+            <li><%= link_to "イベントの新規登録", new_event_path %></li>
           </ul>
         </nav>
       <% else %>
@@ -34,8 +35,15 @@
         </div>
       <% end %>
     </header>
+    <div>
+      <%= link_to "イベントの一覧", events_path %> 
+    </div>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
+  <fotter>
+    <p>現在の日付: <%= Time.current.to_s(:datetime_jp) %></p>
+    <p>イベントの一覧の合計:<%= Event.count %>件</p>
+  </fotter>
 </html>

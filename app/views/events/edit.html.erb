@@ -1,0 +1,53 @@
+<h4>イベントの編集</h4>
+<%= render "shared/error", obj: @event %>
+<%= form_with model: @event do |f| %>
+  <table>
+    <tr>
+      <th><%= f.label :eventname, "イベント名" %></th>
+      <td><%= f.text_field :eventname %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :eventimage, "イベント写真" %></th>
+      <td>
+        <%= image_tag(@event.eventimage.to_s, class: "event-image") %></br>
+        <%= f.file_field :eventimage %>
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label :video, "イベント動画" %></th>
+      <td>
+        <%= video_tag(@event.video.to_s) %></br>
+        <%= f.file_field :video, :accept => 'video/*' %>
+      </td>
+    </tr>
+    <tr>
+      <th><%= f.label :first_day, "開始日" %></th>
+      <td><%= f.datetime_field :first_day %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :last_day, "終了日" %></th>
+      <td><%= f.datetime_field :last_day %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :place, "場所" %></th>
+      <td><%= f.text_area :place %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :content, "内容" %></th>
+      <td><%= f.text_area :content %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :eventtype, "イベントの種類" %></th>
+      <td>
+         <%= f.select :eventtype, [["お祭り", "お祭り"], ["フェス", "フェス"], ["イベント", "イベント"], ["スポーツ", "スポーツ"], ["食", "食"], ["音楽", "音楽"], ["美術館", "美術館"], ["博物館", "博物館"]], include_blank: "選択してください" %>
+      </td>
+    </tr>
+  </table>
+  <div>
+    <ul>
+      <li><%= f.submit "編集を完了する" %></li>
+      <li><%= link_to "イベントの一覧表", events_path %></li>
+      <li><%= link_to "イベントの詳細", event_path %></li>
+    </ul>
+  </div>
+<% end %>
