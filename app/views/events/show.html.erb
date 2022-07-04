@@ -55,6 +55,7 @@
     <li><%= link_to 'イベントの一覧表', events_path %></li>
     <li><%= link_to 'イベントの編集', [:edit, @event] %></li>
     <li><%= link_to 'イベントの削除', @event, method: :delete, data: { confirm: "本当に削除しますか?" } %></li>
+    <li><%= link_to 'イベントを予約する', new_resovesion_path %></li>
   </ul>
 </div>
 <%= render "post_new" %>
