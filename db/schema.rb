@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_03_131333) do
+ActiveRecord::Schema.define(version: 2022_07_12_140825) do
 
   create_table "events", force: :cascade do |t|
     t.string "eventname"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 2022_07_03_131333) do
     t.string "eventtype"
     t.string "video"
     t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_likes_on_event_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -65,6 +74,8 @@ ActiveRecord::Schema.define(version: 2022_07_03_131333) do
   end
 
   add_foreign_key "events", "users"
+  add_foreign_key "likes", "events"
+  add_foreign_key "likes", "users"
   add_foreign_key "posts", "events"
   add_foreign_key "posts", "users"
   add_foreign_key "resovesions", "events"
