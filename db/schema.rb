@@ -38,17 +38,6 @@ ActiveRecord::Schema.define(version: 2022_07_03_131333) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "renovesions", force: :cascade do |t|
-    t.datetime "day"
-    t.string "people"
-    t.integer "user_id"
-    t.integer "event_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["event_id"], name: "index_renovesions_on_event_id"
-    t.index ["user_id"], name: "index_renovesions_on_user_id"
-  end
-
   create_table "resovesions", force: :cascade do |t|
     t.datetime "day"
     t.string "people"
@@ -78,8 +67,6 @@ ActiveRecord::Schema.define(version: 2022_07_03_131333) do
   add_foreign_key "events", "users"
   add_foreign_key "posts", "events"
   add_foreign_key "posts", "users"
-  add_foreign_key "renovesions", "events"
-  add_foreign_key "renovesions", "users"
   add_foreign_key "resovesions", "events"
   add_foreign_key "resovesions", "users"
 end
