@@ -1,0 +1,21 @@
+<h3>予約したイベントを編集する</h3>
+
+<%= form_with model: @resovesion do |f| %>
+  <table>
+    <tr>
+      <th><%= f.label :day, "予約する日付" %></th>
+      <td><%= f.datetime_field :day %></td>
+    </tr>
+    <tr>
+      <th><%= f.label :people, "予約する人数" %></th>
+      <td><%= f.number_field :people %></td>
+    </tr>
+  </table>
+  <div>
+    <ul>
+      <li><%= f.submit "編集を完了する" %></li>
+      <li><%= link_to "予約したイベントの一覧表", resovesions_path %></li>
+      <li><%= link_to "予約したイベントの詳細", resovesion_path %></li>
+    </ul>
+  </div>
+<% end %>

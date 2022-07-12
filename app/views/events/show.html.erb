@@ -55,8 +55,29 @@
     <li><%= link_to 'イベントの一覧表', events_path %></li>
     <li><%= link_to 'イベントの編集', [:edit, @event] %></li>
     <li><%= link_to 'イベントの削除', @event, method: :delete, data: { confirm: "本当に削除しますか?" } %></li>
-    <li><%= link_to 'イベントを予約する', new_resovesion_path %></li>
   </ul>
 </div>
 <%= render "post_new" %>
 <%= render "index_post" %>
+<%= render "new_resovesion" %>
+
+<h3>予約されているイベント一覧表</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>予約者の名前</th>
+      <th>予約した日付</th>
+      <th>予約した人数</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @resovesions.each do |resovesion| %>
+      <tr>
+        <td><%= resovesion.user.username %></td>
+        <td><%= resovesion.day %></td>
+        <td><%= resovesion.people %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

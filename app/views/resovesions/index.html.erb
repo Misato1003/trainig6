@@ -17,17 +17,29 @@
       </div>
       <div>
         <p>予約した日付</p>
-        <p><%= resovesion.day.to_s(:datetime_jp) %></p>
+        <p><%= resovesion.day %></p>
       </div>
       <div>
         <p>予約した人数</p>
         <p><%= resovesion.people %></p>
+      </div>
+      <div>
+        <p>予約したイベントの詳細</p>
+        <p><%= link_to "予約したイベントの詳細", resovesion %></p>
+      </div>
+      <div>
+        <p>予約したイベントの編集</p>
+        <p><%= link_to "予約したイベントの編集", [:edit, resovesion] %></p>
+      </div>
+      <div>
+        <p>削除</p>
+        <p><%= link_to "削除", resovesion, method: :delete, data: {confirm: "本当に削除しますか?" } %></p>
       </div>
     <% end %>
   <% end %>
 </div>
 <div>
   <ul>
-    <li><%= link_to "予約したイベントの詳細", @resovesion %></li>
+    <li><%= link_to "イベントの一覧表", events_path %></li>
   </ul>
 </div>
