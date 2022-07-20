@@ -76,3 +76,4 @@ gem 'carrierwave'
 gem 'mini_magick'
 
 #webフォントアイコンであるFont Awesomeを簡単にrailsで使えることができる
+gem 'font-awesome-sass'
