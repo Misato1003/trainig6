@@ -1,0 +1,14 @@
+<!--いいねの非同期--><!--パーシャル化-->
+<div id="event_<%= event.id %>">
+  <% if current_user.liked_by?(event.id) %>
+    <p>
+      <%= link_to 'いいねを外す', destroy_like_path(event.id), method: :DELETE, remote: true %>
+      <%= event.likes.count %>
+    </p>
+  <% else %>
+    <p>
+      <%= link_to 'いいね', create_like_path(event.id), method: :POST, remote: true %>
+      <%= event.likes.count %>
+    </p>
+  <% end %>
+</div>

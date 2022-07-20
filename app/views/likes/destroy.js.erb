@@ -1,0 +1,2 @@
+<!--いいねの非同期-->
+document.getElementById('event_<%= @event.id %>').innerHTML = '<%= j(render 'events/like', event: @event) %>'
