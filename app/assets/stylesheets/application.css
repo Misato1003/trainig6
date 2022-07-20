@@ -14,10 +14,6 @@
  *= require_self
  */
 
-/*Font Awsomeの導入*/
-@import "font-awesome-sprockets";
-@import "font-awesome";
-
 /*いいねのボタン(like-link) */
 
 .like-link {

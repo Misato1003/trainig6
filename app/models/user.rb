@@ -5,13 +5,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   mount_uploader :image, ImageUploader
-  
+
   has_many :posts
   has_many :events
   has_many :resovesions
   has_many :likes
-  
-  #いいね機能
+
+  # いいね機能
   def liked_by?(event_id)
     likes.where(event_id: event_id).exists?
   end

@@ -31,7 +31,7 @@ class ResovesionsController < ApplicationController
     if @resovesion.update(params.require(:resovesion).permit(:people, :day, :event_id).merge(user_id: current_user.id))
       flash[:notice] = "予約を更新しました"
       redirect_to resovesion_path
-    else 
+    else
       flash[:notice] = "予約の更新ができませんでした"
       render "edit"
     end
@@ -44,4 +44,3 @@ class ResovesionsController < ApplicationController
     redirect_to　resovesions_path
   end
 end
-
