@@ -31,13 +31,8 @@
     
     <%= render 'like', event: event %>
     
-    <div>
-      <% if current_user.favorite_find(event.id) %>
-        <%= link_to 'お気に入りから外す', destroy_favorite_path(event.id), method: :delete %>
-      <% else %>
-        <%= link_to 'お気に入り登録する', create_favorite_path(event.id), method: :post %>
-      <% end %>
-    </div>
+    <%= render 'favorite', event: event %>
+    
     <div>
       <p>作成日</p>
       <p><%= event.created_at.to_s(:datetime_jp) %></p>
