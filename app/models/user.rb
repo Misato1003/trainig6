@@ -10,9 +10,15 @@ class User < ApplicationRecord
   has_many :events
   has_many :resovesions
   has_many :likes
+  has_many :favorites
 
   # いいね機能
   def liked_by?(event_id)
     likes.where(event_id: event_id).exists?
+  end
+
+  # お気に入り機能
+  def favorite_find(event_id)
+    favorites.where(event_id: event_id).exists?
   end
 end

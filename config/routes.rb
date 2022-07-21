@@ -11,4 +11,8 @@ Rails.application.routes.draw do
   
   #いいね機能（解除）
   delete 'like/:id' => 'likes#destroy', as: 'destroy_like'
+  
+  #お気に入り機能（登録）
+  post 'favorite/:id' => 'favorites#create', as: 'create_favorite'
+  delete 'favorite/:id' => 'favorites#destroy', as: 'destroy_favorite'
 end
