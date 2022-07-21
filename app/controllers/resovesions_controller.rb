@@ -8,7 +8,7 @@ class ResovesionsController < ApplicationController
   end
 
   def create
-    @resovesion = Resovesion.new(params.require(:resovesion).permit(:people, :day, :event_id).merge(user_id: current_user.id))
+    @resovesion = Resovesion.new(resovesion_params.merge(user_id: current_user.id))
     if @resovesion.save
       flash[:notice] = "予約をしました"
       redirect_to resovesions_path
@@ -28,7 +28,7 @@ class ResovesionsController < ApplicationController
 
   def update
     @resovesion = Resovesion.find(params[:id])
-    if @resovesion.update(params.require(:resovesion).permit(:people, :day, :event_id).merge(user_id: current_user.id))
+    if @resovesion.update(resovesion_params.merge(user_id: current_user.id))
       flash[:notice] = "予約を更新しました"
       redirect_to resovesion_path
     else
@@ -38,9 +38,9 @@ class ResovesionsController < ApplicationController
   end
 
   def destroy
-    @resovesion = Resovesion.find(params[:id])
-    @resovesion.destroy
-    flash[:notice] = "予約を削除しました"
-    redirect_to　resovesions_path
+  end
+
+  def resovesion_params
+    params.require(:resovesion).permit(:people, :day, :event_id)
   end
 end

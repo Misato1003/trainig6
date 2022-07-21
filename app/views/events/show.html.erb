@@ -69,6 +69,7 @@
       <th>予約者の名前</th>
       <th>予約した日付</th>
       <th>予約した人数</th>
+      <th>編集</th>
     </tr>
   </thead>
   <tbody>
@@ -77,6 +78,7 @@
         <td><%= resovesion.user.username %></td>
         <td><%= resovesion.day %></td>
         <td><%= resovesion.people %></td>
+        <td><%= link_to "編集", [:edit, resovesion] %></td>
       </tr>
     <% end %>
   </tbody>
