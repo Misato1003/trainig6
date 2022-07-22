@@ -1,6 +1,9 @@
 class Event < ApplicationRecord
   belongs_to :user
   has_many :posts
+  has_many :resovesions
+  has_many :likes
+  has_many :favorites
 
   # 画像のアップロード
   mount_uploader :eventimage, ImageUploader

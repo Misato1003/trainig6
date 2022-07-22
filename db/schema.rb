@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_02_131812) do
+ActiveRecord::Schema.define(version: 2022_07_21_081318) do
 
   create_table "events", force: :cascade do |t|
     t.string "eventname"
@@ -27,6 +27,24 @@ ActiveRecord::Schema.define(version: 2022_07_02_131812) do
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "event_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_favorites_on_event_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_likes_on_event_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "impressions"
     t.string "nickname"
@@ -36,6 +54,17 @@ ActiveRecord::Schema.define(version: 2022_07_02_131812) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_posts_on_event_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "resovesions", force: :cascade do |t|
+    t.datetime "day"
+    t.string "people"
+    t.integer "user_id"
+    t.integer "event_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_resovesions_on_event_id"
+    t.index ["user_id"], name: "index_resovesions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,6 +83,12 @@ ActiveRecord::Schema.define(version: 2022_07_02_131812) do
   end
 
   add_foreign_key "events", "users"
+  add_foreign_key "favorites", "events"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "likes", "events"
+  add_foreign_key "likes", "users"
   add_foreign_key "posts", "events"
   add_foreign_key "posts", "users"
+  add_foreign_key "resovesions", "events"
+  add_foreign_key "resovesions", "users"
 end

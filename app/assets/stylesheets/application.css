@@ -14,6 +14,27 @@
  *= require_self
  */
 
+/*いいねのボタン(like-link) */
+
+.like-link {
+  text-decoration: none;
+}
+
+.like-link:hover {
+  background-color: #fff!important;
+}
+
+/*いいね*/
+.like-btn {
+  width: 3%;
+}
+ 
+/*いいねを外す*/
+.unlike-btn {
+  width: 3%;
+}
+
+
 table td { 
   background-color: #3cb371;
   padding: 10px 20px;  

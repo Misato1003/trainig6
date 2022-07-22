@@ -22,6 +22,8 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @post = Post.new
     @posts = Post.where(event_id: @event.id)
+    @resovesion = Resovesion.new
+    @resovesions = Resovesion.where(event_id: @event.id)
   end
 
   def edit

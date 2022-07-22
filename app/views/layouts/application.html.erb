@@ -26,6 +26,8 @@
             <li><%= link_to("プロフィール設定", "/users/edit") %></li>
             <li><%= link_to("ログアウト", "/users/sign_out", method: :delete) %></li>
             <li><%= link_to "イベントの新規登録", new_event_path %></li>
+            <li><%= link_to "イベントの予約一覧表", resovesions_path %></li>
+            <li><%= link_to "お気に入り一覧", user_path(current_user.id) %></li>
           </ul>
         </nav>
       <% else %>
