@@ -1,0 +1,56 @@
+<h3>お気に入り済みのイベントの一覧表</h3>
+
+<% if @favarites_list.present? %>
+  <% @favarites_list.each do |event| %>
+    <div>
+      <div>
+        <p>イベント写真</p>
+        <p><%= image_tag(event.eventimage.to_s, class: "event-image") %></p>
+      </div>
+    
+      <div>
+        <p>イベント名</p>
+        <p><%= event.eventname %></p>
+      </div>
+
+      <div>
+        <p>場所</p>
+        <p><%= simple_format(event.place) %></p>
+      </div>
+
+      <div>
+        <p>開始日</p>
+        <p><%= event.first_day %></p>
+        <p>終了日</p>
+        <p><%= event.last_day %></p>
+      </div>
+
+      <div>
+        <p>内容</p>
+        <p><%= simple_format(event.content) %></p>
+      </div>
+    
+      <div>
+        <p>作成日</p>
+        <p><%= event.created_at.to_s(:datetime_jp) %></p>
+      </div>
+    
+      <div>
+        <p><%= link_to "詳細", event %></p>
+      </div>
+    
+      <div>
+        <p><%= link_to "編集", [:edit, event] %></p>
+      </div>
+    
+      <div>
+        <p><%= link_to "削除", event, method: :delete, data: {confirm: "本当に削除しますか?" } %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<div>
+  <%= link_to 'イベントの一覧表', events_path %>
+  <%= link_to 'イベントの予約表', resovesions_path %>
+  <%= link_to 'トップページ', root_path %>
+</div>

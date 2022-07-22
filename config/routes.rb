@@ -15,4 +15,9 @@ Rails.application.routes.draw do
   #お気に入り機能（登録）
   post 'favorite/:id' => 'favorites#create', as: 'create_favorite'
   delete 'favorite/:id' => 'favorites#destroy', as: 'destroy_favorite'
+  
+  #お気に入り済みのイベントの表示
+  resources :users, only: [:show] do
+    get :favorites, on: :collection
+  end
 end

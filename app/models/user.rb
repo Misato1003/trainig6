@@ -7,6 +7,7 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   has_many :posts
+  has_many :favorites
   has_many :events
   has_many :resovesions
   has_many :likes
@@ -18,7 +19,7 @@ class User < ApplicationRecord
   end
 
   # お気に入り機能
-  def favorite_find(event_id)
+  def favorite_by?(event_id)
     favorites.where(event_id: event_id).exists?
   end
 end
