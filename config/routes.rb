@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     end
   end
   
+  get 'home/search_show', to: 'home#search_show'
+  
   #いいね機能(登録)
   post 'like/:id' => 'likes#create', as: 'create_like'
   

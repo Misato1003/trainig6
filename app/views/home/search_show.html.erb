@@ -1,0 +1,31 @@
+<h4>イベントを検索をする</h4>
+
+<%= search_form_for @q, url: search_events_path do |f| %>
+  <div>
+    <%= f.label :eventname_cont_any, "イベント名" %></br>
+    <%= f.search_field :eventname_cont_any %>
+  </div>
+  
+  <div>
+    <%= f.label :place_cont_any, "イベントの場所" %></br>
+    <%= f.search_field :place_cont_any %>
+  </div>
+  
+  <div>
+    <%= f.label :eventtype_eq, "イベントの種類" %></br>
+    <%= f.select :eventtype_eq, [["お祭り", "お祭り"], ["フェス", "フェス"], ["イベント", "イベント"], ["スポーツ", "スポーツ"], ["食", "食"], ["音楽", "音楽"], ["美術館", "美術館"], ["博物館", "博物館"]], include_blank: "選択してください" %>
+  </div>
+  
+  <div>
+    <%= f.label :first_day, "日時検索" %></br>
+    <%= f.date_field :first_day_gteq,
+                  include_blank: true,
+                  class: 'form-control'%>〜 <!--#「〜」と書くと分かりやすい-->
+    <%= f.date_field :last_day_lteq_end_of_day, #さっき設定したやつ
+                  include_blank: true,
+                  class: 'form-control'%>
+  </div>
+  
+  
+  <%= f.submit "検索" %>
+<% end %>

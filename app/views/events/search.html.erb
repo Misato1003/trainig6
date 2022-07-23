@@ -2,9 +2,34 @@
 
 <% if @results.length != 0 %>
   <% @results.each do |event| %>
-    <%= event.eventname %>
-    <%= event.content %>
+    <div>
+      <p>イベントの写真</p>
+      <p><%= image_tag(event.eventimage.to_s, class: "event-image") %></p>
+    </div>
+    <div>
+      <p>イベント名</p>
+      <p><%= event.eventname %></p>
+    </div>
+    <div>
+      <p>イベントの内容</p>
+      <p><%= event.content %></p>
+    </div>
+    <div>
+      <p>イベントの場所</p>
+      <p><%= event.place %></p>
+    </div>
+    <div>
+      <p>開始日時</p>
+      <p><%= event.first_day %></p>
+      <p>終了日時</p>
+      <p><%= event.last_day %></p>
+    </div>
   <% end %>
 <% else %>
   <p>検索結果はありません</p>
 <% end %>
+
+<div>
+  <p><%= link_to "イベントの一覧表", events_path %></p>
+  <p><%= link_to "トップページ", root_path %></p>
+</div>
