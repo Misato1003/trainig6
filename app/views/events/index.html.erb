@@ -8,7 +8,7 @@
     </div>
     
     <div>
-      <p>イベント名</p>
+      <p><%= sort_link(@q, :eventname, "イベント名") %></p>
       <p><%= event.eventname %></p>
     </div>
 
@@ -18,9 +18,9 @@
     </div>
 
     <div>
-      <p>開始日</p>
+      <p><%= sort_link(@q, :first_day, "開始日") %></p>
       <p><%= event.first_day %></p>
-      <p>終了日</p>
+      <p><%= sort_link(@q, :last_day, "終了日") %></p>
       <p><%= event.last_day %></p>
     </div>
 
@@ -34,7 +34,7 @@
     <%= render 'favorite', event: event %>
     
     <div>
-      <p>作成日</p>
+      <p><%= sort_link(@q, :created_at, "作成日") %></p>
       <p><%= event.created_at.to_s(:datetime_jp) %></p>
     </div>
     

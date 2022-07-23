@@ -1,2 +1,7 @@
-<h1>Home#page</h1>
-<p>Find me in app/views/home/page.html.erb</p>
+<h4>イベントを検索をする</h4>
+
+<%= search_form_for @q, url: search_events_path do |f| %>
+  <%= f.label :eventname_cont, "イベント名" %></br>
+  <%= f.search_field :eventname_cont %>
+  <%= f.submit "検索" %>
+<% end %>

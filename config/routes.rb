@@ -2,9 +2,19 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'home#page'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+  #検索機能
+  resources :events do
+    collection do
+      get 'search'
+    end
+  end
+  
   resources :events
   resources :posts
   resources :resovesions
+  
+  get 'home/search_show', to: 'home#search_show'
   
   #いいね機能(登録)
   post 'like/:id' => 'likes#create', as: 'create_like'

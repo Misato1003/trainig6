@@ -38,6 +38,10 @@ class ResovesionsController < ApplicationController
   end
 
   def destroy
+    @resovesion = Resovesion.find(params[:id])
+    @resovesion.destroy
+    flash[:notice] = "予約を削除しました"
+    redirect_to resovesions_path
   end
 
   def resovesion_params
