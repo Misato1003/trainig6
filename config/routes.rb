@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :events
+  resources :posts
+  resources :resovesions
+  
   get 'home/search_show', to: 'home#search_show'
   
   #いいね機能(登録)
@@ -26,8 +30,4 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     get :favorites, on: :collection
   end
-  
-  resources :events
-  resources :posts
-  resources :resovesions
 end

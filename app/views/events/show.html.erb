@@ -79,6 +79,7 @@
         <td><%= resovesion.day %></td>
         <td><%= resovesion.people %></td>
         <td><%= link_to "編集", [:edit, resovesion] %></td>
+        <td><%= link_to "予約したイベントの削除", resovesion ,method: :delete, data: { confirm: "本当に削除しますか?" } %></td>
       </tr>
     <% end %>
   </tbody>

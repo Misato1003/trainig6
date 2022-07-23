@@ -6,12 +6,12 @@ class User < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  has_many :posts
-  has_many :favorites
-  has_many :events
-  has_many :resovesions
-  has_many :likes
-  has_many :favorites
+  has_many :likes, dependent: :destroy
+  has_many :posts, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :events, dependent: :destroy
+  has_many :resovesions, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   # いいね機能
   def liked_by?(event_id)

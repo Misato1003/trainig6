@@ -7,7 +7,7 @@
       <p><%= image_tag(event.eventimage.to_s, class: "event-image") %></p>
     </div>
     <div>
-      <p>イベント名</p>
+      <p><%= sort_link(@q, :eventname, "イベント名") %></p>
       <p><%= event.eventname %></p>
     </div>
     <div>
@@ -19,9 +19,9 @@
       <p><%= event.place %></p>
     </div>
     <div>
-      <p>開始日時</p>
+      <p><%= sort_link(@q, :first_day, "開始日時") %></p>
       <p><%= event.first_day %></p>
-      <p>終了日時</p>
+      <p><%= sort_link(@q, :last_day, "終了日時") %></p>
       <p><%= event.last_day %></p>
     </div>
   <% end %>

@@ -1,3 +1,4 @@
+#日付の検索機能
 Ransack.configure do |config|
   config.add_predicate 'lteq_end_of_day',  #設定するpredicateに名前をつける
                       arel_predicate: 'lteq',  #使いたいpredicate
